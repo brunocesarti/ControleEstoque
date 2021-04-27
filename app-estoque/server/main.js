@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { ProdutosCollection } from '/imports/api/ProdutosCollection';
 
-const insertProduto = produtoText => ProdutosCollection.insert({ text: produtoText });
+const insertProduto = produtoText => ProdutosCollection.insert( produtoText );
 
 Meteor.startup(() => {
   if (ProdutosCollection.find().count() === 0) {
