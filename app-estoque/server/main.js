@@ -6,9 +6,9 @@ const insertProduto = produtoText => ProdutosCollection.insert({ text: produtoTe
 Meteor.startup(() => {
   if (ProdutosCollection.find().count() === 0) {
     [
-        {nome: 'Celular Motorola', quantidade: 3, valor: 1000},
-        {nome: 'Tablet Sansung', quantidade: 2, valor: 900},
-        {nome: 'Notebook Acer', quantidade: 1, valor: 3000},
+        { nome: 'Celular Motorola', quantidade: 3, valor: 1000 },
+        { nome: 'Tablet Sansung', quantidade: 2, valor: 900 },
+        { nome: 'Notebook Acer', quantidade: 1, valor: 3000 },
     ].forEach(insertProduto)
   }
 });
