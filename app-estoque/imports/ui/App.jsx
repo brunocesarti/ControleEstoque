@@ -4,9 +4,10 @@ import { ProdutosCollection } from '/imports/api/ProdutosCollection';
 import { Produto } from './Produto';
 import { ProdutoForm } from './ProdutoForm';
 
+const deleteProduto = ({ _id }) => ProdutosCollection.remove(_id);
+
 export const App = () => {
     const produtos = useTracker(() => ProdutosCollection.find({}, { sort: { createdAt: -1 } }).fetch());
-    const deleteProduto = ({ _id }) => ProdutosCollection.remove(_id);
 
     return (
         <div className="app">
@@ -21,12 +22,14 @@ export const App = () => {
             <div className="main">
                 <ProdutoForm />
 
-                <ul className={produtos}>
-                    { produtos.map(produto => <Produto
-                        key={ produto._id }
-                        produto={ produto }
+                <ul className="produtos">
+                    { produtos.map(produto => (
+                        <Produto
+                        key={produto._id}
+                        produto={produto}
                         onDeleteClick={deleteProduto}
-                    />) }
+                    />
+                    ))}
                 </ul>
             </div>
         </div>
