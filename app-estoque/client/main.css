@@ -82,6 +82,15 @@ header {
   margin: 16px;
 }
 
+.filter {
+  display: flex;
+  justify-content: center;
+}
+
+.filter > button {
+  background-color: #62807e;
+}
+
 .produtos-form > input {
   flex-grow: 1;
   box-sizing: border-box;
