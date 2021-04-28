@@ -8,19 +8,29 @@ export const App = () => {
     const produtos = useTracker(() => ProdutosCollection.find({}, { sort: { createdAt: -1 } }).fetch());
     const deleteProduto = ({ _id }) => ProdutosCollection.remove(_id);
 
-  return (
-    <div>
-      <h1>Controle de estoque - vs 1.0</h1>
+    return (
+        <div className="app">
+            <header>
+                <div className="app-bar">
+                    <div className="app-header">
+                        <h1>📝️ Controle de Estoque</h1>
+                    </div>
+                </div>
+            </header>
 
-        <ProdutoForm/>
+            <div className="main">
+                <ProdutoForm />
 
-      <ul>
-          { produtos.map(produto => <Produto
-              key={ produto._id }
-              produto={ produto }
-              onDeleteClick={deleteProduto}
-          />) }
-      </ul>
-    </div>
-  );
+                <ul className={produtos}>
+                    { produtos.map(produto => <Produto
+                        key={ produto._id }
+                        produto={ produto }
+                        onDeleteClick={deleteProduto}
+                    />) }
+                </ul>
+            </div>
+        </div>
+    );
+
+
 };
