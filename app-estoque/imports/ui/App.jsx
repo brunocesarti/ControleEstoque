@@ -5,7 +5,7 @@ import { Produto } from './Produto';
 import { ProdutoForm } from './ProdutoForm';
 
 export const App = () => {
-    const produtos = useTracker(() => ProdutosCollection.find({}).fetch());
+    const produtos = useTracker(() => ProdutosCollection.find({}, { sort: { createdAt: -1 } }).fetch());
 
   return (
     <div>
