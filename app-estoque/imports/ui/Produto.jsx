@@ -1,5 +1,5 @@
 import React from 'react';
 
-export const Produto = ({ produto }) => {
-    return <ul>{produto.nome} | {produto.quantidade} | {produto.valor}</ul>
+export const Produto = ({ produto, onDeleteClick }) => {
+    return <ul>{produto.nome} | {produto.quantidade} | {produto.valor} <button onClick={ () => onDeleteClick(task) }>&times;</button></ul>
 };
