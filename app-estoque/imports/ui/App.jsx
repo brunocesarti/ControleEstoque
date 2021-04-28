@@ -6,6 +6,7 @@ import { ProdutoForm } from './ProdutoForm';
 
 export const App = () => {
     const produtos = useTracker(() => ProdutosCollection.find({}, { sort: { createdAt: -1 } }).fetch());
+    const deleteProduto = ({ _id }) => ProdutosCollection.remove(_id);
 
   return (
     <div>
@@ -14,7 +15,11 @@ export const App = () => {
         <ProdutoForm/>
 
       <ul>
-          { produtos.map(produto => <Produto key={ produto._id } produto={ produto }/>) }
+          { produtos.map(produto => <Produto
+              key={ produto._id }
+              produto={ produto }
+              onDeleteClick={deleteProduto}
+          />) }
       </ul>
     </div>
   );
